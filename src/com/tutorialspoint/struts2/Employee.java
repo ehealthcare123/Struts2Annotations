@@ -14,7 +14,7 @@ import com.tutorialspoint.db.DBConnect;
    @Result(name="input", location="/index.jsp")
 })
 public class Employee extends ActionSupport{
-	
+	//nochmal
    private String name;
    private int age;
 //upload
