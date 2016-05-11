@@ -17,7 +17,7 @@ public class Employee extends ActionSupport{
 	
    private String name;
    private int age;
-
+//upload
    @Action(value="empinfo")
    public String execute() 
    {
