@@ -1,9 +1,13 @@
 package com.tutorialspoint.struts2;
 
+import java.util.Date;
+import java.util.Map;
+
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.validator.annotations.*;
 import com.tutorialspoint.db.DBConnect;
@@ -15,16 +19,23 @@ import com.tutorialspoint.db.DBConnect;
 })
 public class Employee extends ActionSupport{
 	
+   /**
+	 * 
+	 */
+   private static final long serialVersionUID = -1682820702274153891L;
    private String name;
-   private int age;
-// xxx
-   @Action(value="empinfo")
+   private String password;
+
+   // xxx
+   @Action(value="login")
    public String execute() 
    {
+	   Map<String, Object> session = ActionContext.getContext().getSession();
+	   session.put("datum",new Date());
        return SUCCESS;
    }
 
-   @RequiredStringValidator( message = "The name is required")
+   @RequiredStringValidator( message = "Please enter a user name!")
    public String getName() {
        return name;
    }
@@ -32,13 +43,13 @@ public class Employee extends ActionSupport{
        this.name = name;
    }
 
-   @IntRangeFieldValidator(message = "Age must be in between 29 and 65",
-                                      min = "29", max = "65")
-   public int getAge() {
-       return age;
+   @RequiredStringValidator(message = "Please enter a password!")
+   public String getPassword() {
+       return password;
    }
-   public void setAge(int age) {
-       this.age = age;
+   
+   public void setPassword(String password) {
+       this.password = password;
    }
    
    @Override

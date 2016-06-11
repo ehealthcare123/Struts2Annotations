@@ -9,5 +9,6 @@
 </head>
 <body>
    Employee Information is captured successfully.
+   <s:property value="#session.datum" />
 </body>
 </html>

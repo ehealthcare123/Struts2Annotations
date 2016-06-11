@@ -10,11 +10,15 @@
 
 <body>
 
-   <s:form action="empinfo" method="post">
+   <s:form action="login" method="post">
       <s:textfield name="name" label="Name" size="20" />
-      <s:textfield name="age" label="Age" size="20" />
-      <s:submit  name="submit" label="Submit" align="center" />
+      <s:password name="password" label="Password" size="20" />
+      <s:submit name="submit" label="Submit" align="center" />
    </s:form>
 
+<a href="<s:url action="register"/>">Registrieren</a>
+<a href="echo.xhtml">WebSocketTest</a>
+
+<script src="JSsources/WebSocketHandler.js" type="application/javascript"></script>
 </body>
 </html>
